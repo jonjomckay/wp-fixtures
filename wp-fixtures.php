@@ -26,8 +26,9 @@
 			  PRIMARY KEY  (id)
 			);";
 
-			require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
-			dbDelta($sql);
+			//require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
+			//dbDelta($sql);
+			$wpdb->query($sql);
 		}
 		
 		if($wpdb->get_var("show tables like '" . $wpdb->prefix . 'wpf-teams' . "'") != $wpdb->prefix . 'wpf-teams') {
@@ -39,8 +40,9 @@
 				UNIQUE KEY name_UNIQUE (name)
 			);";
 
-			require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
-			dbDelta($sql);
+			//require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
+			//dbDelta($sql);
+			$wpdb->query($sql);
 		}
 		
 		if($wpdb->get_var("show tables like '" . $wpdb->prefix . 'wpf-venues' . "'") != $wpdb->prefix . 'wpf-venues') {
@@ -56,8 +58,9 @@
 				UNIQUE KEY address_UNIQUE (address)
 			);";
 
-			require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
-			dbDelta($sql);
+			//require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
+			//dbDelta($sql);
+			$wpdb->query($sql);
 		}
 
 		$welcome_text = "Installation completed!";
