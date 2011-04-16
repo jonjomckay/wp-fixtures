@@ -63,8 +63,6 @@
 		$rows_affected = $wpdb->insert( $table_name, array( 'time' => current_time('mysql'), 'text' => $welcome_text ) );
 
 		add_option("wp_fixtures_db_version", $wp_fixtures_db_version);
-
-	   }
 	}
 	
 	register_activation_hook(__FILE__, 'wp_fixtures_install');
