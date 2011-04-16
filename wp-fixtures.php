@@ -36,7 +36,7 @@
 				id INT NOT NULL,
 				name VARCHAR(70) NULL,
 				PRIMARY KEY  (id),
-				UNIQUE KEY name_UNIQUE (name ASC)
+				UNIQUE KEY name_UNIQUE (name)
 			);";
 
 			require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
@@ -52,8 +52,8 @@
 				city VARCHAR(70) NULL,
 				postcode VARCHAR(15) NULL,
 				PRIMARY KEY  (id),
-				UNIQUE KEY postcode_UNIQUE (postcode ASC),
-				UNIQUE KEY address_UNIQUE (address ASC)
+				UNIQUE KEY postcode_UNIQUE (postcode),
+				UNIQUE KEY address_UNIQUE (address)
 			);";
 
 			require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
