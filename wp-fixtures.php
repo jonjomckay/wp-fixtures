@@ -20,11 +20,11 @@
 	   if($wpdb->get_var("show tables like '" . $wpdb->prefix . 'wpf-fixtures' . "'") != $wpdb->prefix . 'wpf-fixtures') {
 		  
 			$sql = "CREATE TABLE " . $wpdb->prefix . 'wpf-fixtures' . " (
-			  `id` INT NOT NULL,
-			  `team` INT NULL,
-			  `date` DATETIME NULL,
-			  PRIMARY KEY (`id`)
-			) ENGINE = InnoDB;";
+			  id INT NOT NULL,
+			  team INT NULL,
+			  date DATETIME NULL,
+			  PRIMARY KEY (id)
+			);";
 
 			require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
 			dbDelta($sql);
@@ -33,11 +33,11 @@
 		if($wpdb->get_var("show tables like '" . $wpdb->prefix . 'wpf-teams' . "'") != $wpdb->prefix . 'wpf-teams') {
 			
 			$sql = "CREATE TABLE " . $wpdb->prefix . 'wpf-teams' . " (
-				`id` INT NOT NULL ,
-				`name` VARCHAR(70) NULL ,
-				PRIMARY KEY (`id`) ,
-				UNIQUE INDEX `name_UNIQUE` (`name` ASC)
-			) ENGINE = InnoDB;";
+				id INT NOT NULL,
+				name VARCHAR(70) NULL,
+				PRIMARY KEY (id),
+				UNIQUE KEY name_UNIQUE (name ASC)
+			);";
 
 			require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
 			dbDelta($sql);
@@ -46,15 +46,15 @@
 		if($wpdb->get_var("show tables like '" . $wpdb->prefix . 'wpf-venues' . "'") != $wpdb->prefix . 'wpf-venues') {
 			
 			$sql = "CREATE TABLE " . $wpdb->prefix . 'wpf-venues' . " (
-				`id` INT NOT NULL ,
-				`name` VARCHAR(70) NULL ,
-				`address` VARCHAR(120) NULL ,
-				`city` VARCHAR(70) NULL ,
-				`postcode` VARCHAR(15) NULL ,
-				PRIMARY KEY (`id`) ,
-				UNIQUE INDEX `postcode_UNIQUE` (`postcode` ASC) ,
-				UNIQUE INDEX `address_UNIQUE` (`address` ASC)
-			) ENGINE = InnoDB;";
+				id INT NOT NULL,
+				name VARCHAR(70) NULL,
+				address VARCHAR(120) NULL,
+				city VARCHAR(70) NULL,
+				postcode VARCHAR(15) NULL,
+				PRIMARY KEY (id),
+				UNIQUE KEY postcode_UNIQUE (postcode ASC),
+				UNIQUE KEY address_UNIQUE (address ASC)
+			);";
 
 			require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
 			dbDelta($sql);
