@@ -10,6 +10,8 @@
 	
 	global $wp_fixtures_db_version;
 	$wp_fixtures_db_version = "1.0";
+	
+	register_activation_hook(__FILE__, 'wp_fixtures_install');
 
 	function wp_fixtures_install () {
 	   global $wpdb;
@@ -64,6 +66,4 @@
 
 		add_option("wp_fixtures_db_version", $wp_fixtures_db_version);
 	}
-	
-	register_activation_hook(__FILE__, 'wp_fixtures_install');
 ?>
