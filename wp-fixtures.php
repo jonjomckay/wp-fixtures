@@ -61,7 +61,7 @@
 	   global $wpdb;
 	   global $wp_fixtures_db_version;
 
-	   if($wpdb->get_var("show tables like `" . $wpdb->prefix . "wpf-fixtures`") != $wpdb->prefix . 'wpf-fixtures') {
+	   if($wpdb->get_var("show tables like '" . $wpdb->prefix . 'wpf-fixtures' . "'") != $wpdb->prefix . 'wpf-fixtures') {
 		  
 			$sql = "CREATE TABLE `" . $wpdb->prefix . "wpf-fixtures` (
 			  `id` INT NOT NULL,
@@ -74,7 +74,7 @@
 			dbDelta($sql);
 		}
 		
-		if($wpdb->get_var("show tables like `" . $wpdb->prefix . "wpf-teams`") != $wpdb->prefix . 'wpf-teams') {
+		if($wpdb->get_var("show tables like '" . $wpdb->prefix . 'wpf-teams' . "'") != $wpdb->prefix . 'wpf-teams') {
 			
 			$sql = "CREATE TABLE `" . $wpdb->prefix . "wpf-teams` (
 				`id` INT NOT NULL,
