@@ -14,33 +14,33 @@
 
 		$num = 0;
 		$it_tables[$num]['table_name'] = $wpdb->prefix . 'wpf-fixtures';
-		$it_tables[$num]['table_sql'] = "CREATE TABLE " . $wpdb->prefix . "wpf-fixtures (
-				id INT NOT NULL,
-				team INT NULL,
-				date DATETIME NULL,
-				PRIMARY KEY  (id)
-			) ENGINE = InnoDB;";  
+		$it_tables[$num]['table_sql'] = "CREATE TABLE `" . $wpdb->prefix . "wpf-fixtures` (
+				`id` INT NOT NULL ,
+				`team` INT NULL ,
+				`date` DATETIME NULL ,
+				PRIMARY KEY (`id`)
+			) ENGINE = InnoDB;"; 		
 
 		$num++;
 		$it_tables[$num]['table_name'] = $wpdb->prefix . 'wpf-teams';
-		$it_tables[$num]['table_sql'] = "CREATE TABLE " . $wpdb->prefix . "wpf-teams (
-				id INT NOT NULL,
-				name VARCHAR(70) NULL,
-				PRIMARY KEY  (id),
-				UNIQUE INDEX name_UNIQUE (name ASC)
+		$it_tables[$num]['table_sql'] = "CREATE TABLE `" . $wpdb->prefix . "wpf-teams` (
+				`id` INT NOT NULL ,
+				`name` VARCHAR(70) NULL ,
+				PRIMARY KEY (`id`) ,
+				UNIQUE INDEX `name_UNIQUE` (`name` ASC)
 			) ENGINE = InnoDB;";
 			
 		$num++;
 		$it_tables[$num]['table_name'] = $wpdb->prefix . 'wpf-venues';
-		$it_tables[$num]['table_sql'] = "CREATE TABLE " . $wpdb->prefix . "wpf-venues (
-				id INT NOT NULL,
-				name VARCHAR(70) NULL,
-				address VARCHAR(120) NULL,
-				city VARCHAR(70) NULL,
-				postcode VARCHAR(15) NULL,
-				PRIMARY KEY  (id),
-				UNIQUE INDEX postcode_UNIQUE (postcode ASC),
-				UNIQUE INDEX address_UNIQUE (address ASC)
+		$it_tables[$num]['table_sql'] = "CREATE TABLE `" . $wpdb->prefix . "wpf-venues` (
+				`id` INT NOT NULL ,
+				`name` VARCHAR(70) NULL ,
+				`address` VARCHAR(120) NULL ,
+				`city` VARCHAR(70) NULL ,
+				`postcode` VARCHAR(15) NULL ,
+				PRIMARY KEY (`id`) ,
+				UNIQUE INDEX `postcode_UNIQUE` (`postcode` ASC) ,
+				UNIQUE INDEX `address_UNIQUE` (`address` ASC)
 			) ENGINE = InnoDB;";
 
 		foreach($it_tables as $it_table) {
