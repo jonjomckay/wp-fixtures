@@ -66,6 +66,9 @@
 	
 	function wp_fixtures_admin_menu() {
 		add_menu_page('Fixtures', 'Fixtures', 4, 'wp-fixtures-menu', 'wp_fixtures_admin_options', '', 11);
+		add_submenu_page('wp-fixtures-menu', 'Add Fixtures', 'Fixtures', 4, 'wp-fixtures-menu-fixtures', 'wp_fixtures_admin_fixtures');
+		add_submenu_page('wp-fixtures-menu', 'Add Teams', 'Teams', 4, 'wp-fixtures-menu-teams', 'wp_fixtures_admin_teams');
+		add_submenu_page('wp-fixtures-menu', 'Add Venues', 'Venues', 4, 'wp-fixtures-menu-venues', 'wp_fixtures_admin_venues');
 	}
 	
 	function wp_fixtures_admin_options() {
@@ -75,6 +78,36 @@
 
 		echo '<div class="wrap">';
 		echo '<p>Here is where the form would go if I actually had options.</p>';
+		echo '</div>';
+	}
+	
+	function wp_fixtures_admin_fixtures() {
+		if (!current_user_can('manage_options'))  {
+			wp_die( __('You do not have sufficient permissions to access this page.') );
+		}
+
+		echo '<div class="wrap">';
+		echo '<p>Add fixtures...</p>';
+		echo '</div>';
+	}
+	
+	function wp_fixtures_admin_teams() {
+		if (!current_user_can('manage_options'))  {
+			wp_die( __('You do not have sufficient permissions to access this page.') );
+		}
+
+		echo '<div class="wrap">';
+		echo '<p>Add teams...</p>';
+		echo '</div>';
+	}
+	
+	function wp_fixtures_admin_venues() {
+		if (!current_user_can('manage_options'))  {
+			wp_die( __('You do not have sufficient permissions to access this page.') );
+		}
+
+		echo '<div class="wrap">';
+		echo '<p>Add venues...</p>';
 		echo '</div>';
 	}
 	
