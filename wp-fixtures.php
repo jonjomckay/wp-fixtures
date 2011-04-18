@@ -64,7 +64,9 @@
 		add_option("wp_fixtures_db_version", $wp_fixtures_db_version);
 	}
 	
-	add_menu_page('Title', 'Fixtures',3,'an-uniq-string-as-key', 'wp_fixtures_admin_options', 'http://www.example.com/favicon.ico', 1);
+	function wp_fixtures_admin_menu() {
+		add_menu_page('Title', 'Fixtures',4,'an-uniq-string-as-key', 'wp_fixtures_admin_options', 'http://www.example.com/favicon.ico', 1);
+	}
 	
 	function wp_fixtures_admin_options() {
 		if (!current_user_can('manage_options'))  {
@@ -75,7 +77,5 @@
 		echo '<p>Here is where the form would go if I actually had options.</p>';
 		echo '</div>';
 	}
-	
-	add_action('admin_menu', 'wp_fixtures_admin_menu');
 	
 ?>
