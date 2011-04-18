@@ -65,8 +65,7 @@
 	}
 	
 	function wp_fixtures_admin_menu() {
-		
-		add_options_page('My Plugin Options', 'My Plugin', 'manage_options', 'my-unique-identifier', 'my_plugin_options');
+		add_menu_page('Title', 'Fixtures',4,'an-uniq-string-as-key', 'wp_fixtures_admin_options', 'http://www.example.com/favicon.ico', 1);
 	}
 	
 	function wp_fixtures_admin_options() {
