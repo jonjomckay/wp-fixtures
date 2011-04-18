@@ -65,7 +65,7 @@
 	}
 	
 	function wp_fixtures_admin_menu() {
-		add_menu_page('Fixtures', 'Fixtures', 4, 'wp-fixtures-menu', 'wp_fixtures_admin_options', '', 7);
+		add_menu_page('Fixtures', 'Fixtures', 4, 'wp-fixtures-menu', 'wp_fixtures_admin_options', '', 11);
 	}
 	
 	function wp_fixtures_admin_options() {
