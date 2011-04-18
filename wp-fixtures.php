@@ -12,6 +12,7 @@
 	$wp_fixtures_db_version = "1.0";
 	
 	register_activation_hook(__FILE__, 'wp_fixtures_install');
+	add_action('admin_menu', 'wp_fixtures_admin_menu');
 
 	function wp_fixtures_install () {
 	   global $wpdb;
