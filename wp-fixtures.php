@@ -9,7 +9,7 @@
 	*/
 
 	global $wp_fixtures_db_version;
-	$wp_fixtures_db_version = "1.0";
+	$wp_fixtures_db_version = "1.1";
 	
 	register_activation_hook(__FILE__, 'wp_fixtures_install');
 	add_action('admin_menu', 'wp_fixtures_admin_menu');
@@ -23,7 +23,7 @@
 	   if( $installed_ver != $wp_fixtures_db_version ) {
 		  
 			$sql = "CREATE TABLE `" . $wpdb->prefix . "wpf-fixtures` (
-			  `id` INT NOT NULL,
+			  `id` INT NOT NULL AUTO_INCREMENT,
 			  `team` INT NULL,
 			  `date` DATETIME NULL,
 			  PRIMARY KEY  (`id`)
@@ -33,7 +33,7 @@
 			dbDelta($sql);
 		
 			$sql = "CREATE TABLE `" . $wpdb->prefix . "wpf-teams` (
-				`id` INT NOT NULL,
+				`id` INT NOT NULL AUTO_INCREMENT,
 				`name` VARCHAR(70) NULL,
 				PRIMARY KEY  (`id`),
 				UNIQUE KEY name_UNIQUE (`name` ASC)
@@ -43,7 +43,7 @@
 			dbDelta($sql);
 		
 			$sql = "CREATE TABLE `" . $wpdb->prefix . "wpf-venues` (
-				`id` INT NOT NULL,
+				`id` INT NOT NULL AUTO_INCREMENT,
 				`name` VARCHAR(70) NULL,
 				`address` VARCHAR(120) NULL,
 				`city` VARCHAR(70) NULL,
