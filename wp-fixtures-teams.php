@@ -19,7 +19,9 @@
 			</tr>
 		</thead>
 		<tbody id="the-list">
-		<?php $teams = $wpdb->get_results('SELECT * FROM ' . $wpdb->prefix . 'wpf_teams'); ?>
+		<?php $orderby = ($_GET['orderby'] ? $_GET['orderby'] : 'id'); ?>
+		<?php $order = ($_GET['order'] ? $_GET['order'] : 'desc'); ?>
+		<?php $teams = $wpdb->get_results( $wpdb->prepare( "SELECT * FROM %s ORDER BY %s %s", $wpdb->prefix.'wpf_teams', $orderby, $order ) ); ?>
 		<?php foreach ($teams as $team) : ?>
 			<tr id="team-<?php echo $team->id; ?>" class="" valign="top">
 				<td class="name column-name">
@@ -37,7 +39,7 @@
 		<tfoot>
 			<tr>
 				<th scope="col" class="manage-column column-name sortable desc">
-					<a href="<?php echo get_admin_url(null, 'wp-fixtures-menu-teams?orderby=name&order=asc'); ?>">
+					<a href="<?php echo get_admin_url(null, 'admin.php?page=wp-fixtures-menu-teams?orderby=name&order=asc'); ?>">
 						<span>Name</span>
 						<span class="sorting-indicator"></span>
 					</a>
