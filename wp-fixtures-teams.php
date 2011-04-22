@@ -23,10 +23,10 @@
 			$orderby = ($_GET['orderby'] ? $_GET['orderby'] : 'id');
 			
 			if ($_GET['order'] === 'asc') {
-				$teams = $wpdb->get_results( $wpdb->prepare( "SELECT * FROM %s ORDER BY %s ASC", $wpdb->prefix.'wpf_teams', $orderby ) );
+				$teams = $wpdb->get_results( $wpdb->prepare( "SELECT * FROM %s ORDER BY %s ASC", $wpdb->prefix."wpf_teams", $orderby ) );
 			}
 			elseif ($_GET['order'] === 'desc' OR !isset($_GET['order'])) {
-				$teams = $wpdb->get_results( $wpdb->prepare( "SELECT * FROM %s ORDER BY %s DESC", $wpdb->prefix.'wpf_teams', $orderby ) );
+				$teams = $wpdb->get_results( $wpdb->prepare( "SELECT * FROM %s ORDER BY %s DESC", $wpdb->prefix."wpf_teams", $orderby ) );
 			}
 		?>
 		<?php foreach ($teams as $team) : ?>
