@@ -22,7 +22,7 @@
 	   
 	   if( $installed_ver != $wp_fixtures_db_version ) {
 		  
-			$sql = "CREATE TABLE `" . $wpdb->prefix . "wpf-fixtures` (
+			$sql = "CREATE TABLE '" . $wpdb->prefix . "wpf-fixtures' (
 			  `id` INT NOT NULL AUTO_INCREMENT,
 			  `team` INT NULL,
 			  `date` DATETIME NULL,
@@ -32,7 +32,7 @@
 			require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
 			dbDelta($sql);
 		
-			$sql = "CREATE TABLE `" . $wpdb->prefix . "wpf-teams` (
+			$sql = "CREATE TABLE '" . $wpdb->prefix . "wpf-teams' (
 				`id` INT NOT NULL AUTO_INCREMENT,
 				`name` VARCHAR(70) NULL,
 				PRIMARY KEY  (`id`),
@@ -42,7 +42,7 @@
 			require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
 			dbDelta($sql);
 		
-			$sql = "CREATE TABLE `" . $wpdb->prefix . "wpf-venues` (
+			$sql = "CREATE TABLE '" . $wpdb->prefix . "wpf-venues' (
 				`id` INT NOT NULL AUTO_INCREMENT,
 				`name` VARCHAR(70) NULL,
 				`address` VARCHAR(120) NULL,
