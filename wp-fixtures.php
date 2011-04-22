@@ -65,13 +65,13 @@
 	}
 	
 	function wp_fixtures_admin_menu() {
-		add_menu_page('Fixtures', 'Fixtures', 4, 'wp-fixtures-menu', 'wp_fixtures_admin_options', '', 11);
-		add_submenu_page('wp-fixtures-menu', 'Add Fixtures', 'Fixtures', 4, 'wp-fixtures-menu-fixtures', 'wp_fixtures_admin_fixtures');
-		add_submenu_page('wp-fixtures-menu', 'Add Teams', 'Teams', 4, 'wp-fixtures-menu-teams', 'wp_fixtures_admin_teams');
-		add_submenu_page('wp-fixtures-menu', 'Add Venues', 'Venues', 4, 'wp-fixtures-menu-venues', 'wp_fixtures_admin_venues');
+		add_menu_page('Fixtures', 'Fixtures', 4, 'wp-fixtures-menu', 'wp_fixtures_options', '', 11);
+		add_submenu_page('wp-fixtures-menu', 'Add Fixtures', 'Add Fixtures', 4, 'wp-fixtures-menu-fixtures', 'wp_fixtures_fixtures');
+		add_submenu_page('wp-fixtures-menu', 'Add Teams', 'Add Teams', 4, 'wp-fixtures-menu-teams', 'wp_fixtures_teams');
+		add_submenu_page('wp-fixtures-menu', 'Add Venues', 'Add Venues', 4, 'wp-fixtures-menu-venues', 'wp_fixtures_venues');
 	}
 	
-	function wp_fixtures_admin_options() {
+	function wp_fixtures_options() {
 		if (!current_user_can('manage_options'))  {
 			wp_die( __('You do not have sufficient permissions to access this page.') );
 		}
@@ -81,7 +81,7 @@
 		echo '</div>';
 	}
 	
-	function wp_fixtures_admin_fixtures() {
+	function wp_fixtures_fixtures() {
 		if (!current_user_can('manage_options'))  {
 			wp_die( __('You do not have sufficient permissions to access this page.') );
 		}
@@ -91,17 +91,15 @@
 		echo '</div>';
 	}
 	
-	function wp_fixtures_admin_teams() {
+	function wp_fixtures_teams() {
 		if (!current_user_can('manage_options'))  {
 			wp_die( __('You do not have sufficient permissions to access this page.') );
 		}
 
-		echo '<div class="wrap">';
-		echo '<p>Add teams...</p>';
-		echo '</div>';
+		require('wp-fixtures-teams.php');
 	}
 	
-	function wp_fixtures_admin_venues() {
+	function wp_fixtures_venues() {
 		if (!current_user_can('manage_options'))  {
 			wp_die( __('You do not have sufficient permissions to access this page.') );
 		}
