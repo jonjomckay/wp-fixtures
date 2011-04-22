@@ -1,4 +1,3 @@
-<?php global $wpdb; ?>
 <div class="wrap">
 	<h2>Add Teams</h2>
 	
