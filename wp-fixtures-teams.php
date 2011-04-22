@@ -1,4 +1,8 @@
 <div class="wrap">
-	<h1>Add Teams</h1>
-	<p>Here is where the form would go if I actually had options.</p>
+	<h2>Add Teams</h2>
+	
+	<?php $teams = $wpdb->get_results('SELECT * FROM ' . $wpdb->prefix . 'wpf_teams'); ?>
+	<?php foreach ($teams as $team) : ?>
+		<li><?php echo $team->name; ?></li>
+	<?php endforeach; ?>
 </div>
