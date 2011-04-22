@@ -92,7 +92,6 @@
 			wp_die( __('You do not have sufficient permissions to access this page.') );
 		}
 
-		global $wpdb;
 		require('wp-fixtures-teams.php');
 	}
 	
